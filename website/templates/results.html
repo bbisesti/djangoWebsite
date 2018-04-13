@@ -1,0 +1,25 @@
+{%  extends 'base.html' %}
+{% load static %}
+
+{%  block content %}
+    <h3>Contact Form Results</h3>
+
+    <br />
+
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Here is a breakdown of responses by type</h4>
+            <canvas style="display: none;" id="resultsPieChart" width="500px" height="400px"></canvas>
+        </div>
+        <div class="col-md-6">
+            <h4>Here is a breakdown of responses by user</h4>
+            <canvas style="display: none;" id="userPieChart" width="500px" height="400px"></canvas>
+        </div>
+    </div>
+
+    <br />
+    <h4 id="errorMessage" style="display: none; color: green;"></h4>
+
+
+
+{%  endblock %}

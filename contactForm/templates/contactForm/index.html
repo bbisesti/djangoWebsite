@@ -1,0 +1,24 @@
+{%  extends 'base.html' %}
+
+{%  block content %}
+    {% if message %}
+        {{ message }}
+    {% endif %}
+    <h4>
+    Thank you for contacting us!  Please fill out the form below including the reason for your message
+    </h4>
+    <br />
+    <form method="POST">
+        {%  csrf_token %}
+        {% for field in form %}
+            <span style="vertical-align: top;">{{ field.label }}{% if field.field.required %}<span style="color: red; vertical-align: top;">*</span>{% endif %}</span>
+            {{ field }}
+            {% if field.errors %}
+                <br />
+                <span style="color: red;">{{ field.errors.as_text }}</span>
+            {% endif %}
+            <br /><br />
+        {%  endfor %}
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+{%  endblock %}
